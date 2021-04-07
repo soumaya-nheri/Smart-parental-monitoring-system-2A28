@@ -103,12 +103,12 @@ QSqlQueryModel * parents::trier_nomP()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
     model->setQuery("SELECT * FROM PARENTS ORDER BY nom_parents");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("matricule_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("prenom_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("mail_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("adresse_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("numero_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Matricule"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Prenom"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Mail"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Adresse"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("Numero"));
     return model;
 }
 
@@ -116,12 +116,12 @@ QSqlQueryModel * parents::trier_prenomP()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
     model->setQuery("SELECT * FROM PARENTS ORDER BY prenom_parents");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("matricule_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("prenom_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("mail_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("adresse_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("numero_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Matricule"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Prenom"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Mail"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Adresse"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("Numero"));
     return model;
 }
 
@@ -129,11 +129,11 @@ QSqlQueryModel * parents::trier_numeroP()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
     model->setQuery("SELECT * FROM PARENTS ORDER BY numero_parents");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("matricule_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("prenom_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("mail_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("adresse_parents"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("numero_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Matricule"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Prenom"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Mail"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Adresse"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("Numero"));
     return model;
 }

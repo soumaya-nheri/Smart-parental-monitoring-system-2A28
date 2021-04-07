@@ -39,7 +39,7 @@ QSqlQueryModel* electromenager::afficher_machine()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
           model->setQuery("SELECT* FROM electromenager");
-          model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant Machine"));
+          model->setHeaderData(0, Qt::Horizontal, QObject::tr("Matricule"));
           model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
           model->setHeaderData(2, Qt::Horizontal, QObject::tr("Etat"));
           model->setHeaderData(3, Qt::Horizontal, QObject::tr("Emplacement"));
@@ -79,10 +79,10 @@ QSqlQueryModel * electromenager::trier_etatM()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
     model->setQuery("SELECT * FROM ELECTROMENAGER ORDER BY etat_machine");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("matricule_machine"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("type_machine"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("etat_machine"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("emplacement_machine"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Matricule"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Type"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Etat"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Emplacement"));
     return model;
 }
 
@@ -90,10 +90,10 @@ QSqlQueryModel * electromenager::trier_emplacementM()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
     model->setQuery("SELECT * FROM ELECTROMENAGER ORDER BY emplacement_machine");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("matricule_machine"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("type_machine"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("etat_machine"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("emplacement_machine"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Matricule"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Type"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Etat"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Emplacement"));
     return model;
 }
 
@@ -102,10 +102,10 @@ QSqlQueryModel * electromenager::trier_typeM()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
     model->setQuery("SELECT * FROM ELECTROMENAGER ORDER BY type_machine");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("matricule_machine"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("type_machine"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("etat_machine"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("emplacement_machine"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Matricule"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Type"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Etat"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Emplacement"));
     return model;
 }
 
@@ -113,9 +113,9 @@ QSqlQueryModel * electromenager::rechercher_machine(const QString &b)
 {
    QSqlQueryModel * model = new QSqlQueryModel();
    model->setQuery("SELECT * FROM ELECTROMENAGER WHERE (matricule_machine || type_machine || etat_machine || emplacement_machine) LIKE '%"+b+"%'");
-   model->setHeaderData(0,Qt::Horizontal,QObject::tr("matricule_machine"));
-   model->setHeaderData(1,Qt::Horizontal,QObject::tr("type_machine"));
-   model->setHeaderData(2,Qt::Horizontal,QObject::tr("etat_machine"));
-   model->setHeaderData(3,Qt::Horizontal,QObject::tr("emplacement_machine"));
+   model->setHeaderData(0,Qt::Horizontal,QObject::tr("Matricule"));
+   model->setHeaderData(1,Qt::Horizontal,QObject::tr("Type"));
+   model->setHeaderData(2,Qt::Horizontal,QObject::tr("Etat"));
+   model->setHeaderData(3,Qt::Horizontal,QObject::tr("Emplacement"));
    return model;
 }
