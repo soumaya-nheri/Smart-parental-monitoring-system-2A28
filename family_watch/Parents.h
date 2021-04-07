@@ -48,6 +48,10 @@ public:
     bool supprimer_parent(int matricule_parents);
     bool modifier_parent();
     QSqlQueryModel* rechercher_parents(const QString &b);
+    QSqlQueryModel * trier_nomP();
+    QSqlQueryModel * trier_prenomP();
+    QSqlQueryModel * trier_numeroP();
+
 private:
     int matricule_parents;
     QString nom_parents;

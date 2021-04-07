@@ -43,6 +43,22 @@ private slots:
 
     void on_pb_imprimerM_clicked();
 
+    void on_rb_etatM_clicked();
+
+    void on_rb_emplacementM_clicked();
+
+    void on_rb_typeM_clicked();
+
+    void on_rb_triNomP_clicked();
+
+    void on_rb_triPrenomP_clicked();
+
+    void on_rb_triNumeroP_clicked();
+
+    void on_pb_rechercheM_clicked();
+
+    void on_pd_exportPDFP_clicked();
+
 private:
     Ui::MainWindow *ui;
     parents P;

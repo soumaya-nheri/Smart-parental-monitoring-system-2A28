@@ -99,3 +99,41 @@ QSqlQueryModel * parents::rechercher_parents(const QString &b)
    return model;
 }
 
+QSqlQueryModel * parents::trier_nomP()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM PARENTS ORDER BY nom_parents");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("matricule_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("prenom_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("mail_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("adresse_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("numero_parents"));
+    return model;
+}
+
+QSqlQueryModel * parents::trier_prenomP()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM PARENTS ORDER BY prenom_parents");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("matricule_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("prenom_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("mail_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("adresse_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("numero_parents"));
+    return model;
+}
+
+QSqlQueryModel * parents::trier_numeroP()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM PARENTS ORDER BY numero_parents");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("matricule_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("prenom_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("mail_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("adresse_parents"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("numero_parents"));
+    return model;
+}

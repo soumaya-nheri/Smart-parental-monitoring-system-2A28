@@ -142,6 +142,33 @@ void MainWindow::on_pb_rechercheP_clicked()
 
 }
 
+
+void MainWindow::on_rb_triNomP_clicked()
+{
+    ui->tableView_afficherParents->setModel(P.trier_nomP());
+}
+
+void MainWindow::on_rb_triPrenomP_clicked()
+{
+    ui->tableView_afficherParents->setModel(P.trier_prenomP());
+}
+
+void MainWindow::on_rb_triNumeroP_clicked()
+{
+    ui->tableView_afficherParents->setModel(P.trier_numeroP());
+}
+
+
+void MainWindow::on_pd_exportPDFP_clicked()
+{
+    QPrinter printer;
+     printer.setPrinterName("test");
+     QPrintDialog dialog(&printer, this);
+     if (dialog.exec() == QDialog::Rejected) return;
+     ui->tableView_afficherParents->render(&printer);
+}
+
+
 //MACHINE
 
 void MainWindow::on_pb_actualiser_machine_clicked()
@@ -156,8 +183,8 @@ void MainWindow::on_pb_ajouter_machine_clicked()
 {
     electromenager E;
     E.setmatricule_machine(ui->le_matricule_machine->text().toInt());
-    E.setetat_machine(ui->le_etat_machine->text().toInt());
     E.settype_machine(ui->le_type_machine->text());
+    E.setetat_machine(ui->le_etat_machine->text().toInt());
     E.setemplacement_machine(ui->le_emplacement_machine->text());
     if(E.ajouter_machine())
     {
@@ -189,8 +216,8 @@ void MainWindow::on_pb_modifier_machine_clicked()
 {
     int row=ui->tableView_afficherMachine->selectionModel()->currentIndex().row();
     QString matricule_machine_string=ui->tableView_afficherMachine->model()->index(row,0).data().toString();
-    QString etat_machine_string=ui->tableView_afficherMachine->model()->index(row,1).data().toString();
-    QString type_machine=ui->tableView_afficherMachine->model()->index(row,2).data().toString();
+    QString type_machine=ui->tableView_afficherMachine->model()->index(row,1).data().toString();
+    QString etat_machine_string=ui->tableView_afficherMachine->model()->index(row,2).data().toString();
     QString emplacement_machine=ui->tableView_afficherMachine->model()->index(row,3).data().toString();
 
     if(row==-1)
@@ -202,8 +229,8 @@ void MainWindow::on_pb_modifier_machine_clicked()
     else
     {
         ui->le_matricule_machine2->setText(matricule_machine_string);
-        ui->le_etat_machine2->setText(etat_machine_string);
         ui->le_type_machine2->setText(type_machine);
+        ui->le_etat_machine2->setText(etat_machine_string);
         ui->le_emplacement_machine2->setText(emplacement_machine);
 
 
@@ -214,10 +241,10 @@ void MainWindow::on_pb_modifier_machine_clicked()
 void MainWindow::on_pb_valider_modifE_clicked()
 {
     int matricule_machine=ui->le_matricule_machine2->text().toInt();
-    int etat_machine=ui->le_etat_machine2->text().toInt();
     QString type_machine=ui->le_type_machine2->text();
+    int etat_machine=ui->le_etat_machine2->text().toInt();
     QString emplacement_machine=ui->le_emplacement_machine2->text();
-    electromenager E1(matricule_machine, etat_machine, type_machine, emplacement_machine);
+    electromenager E1(matricule_machine, type_machine, etat_machine, emplacement_machine);
     bool test=E1.modifier_machine();
     if(test)
     {
@@ -244,3 +271,32 @@ void MainWindow::on_pb_imprimerM_clicked()
          ui->tableView_afficherMachine->render(&printer);
 
 }
+
+void MainWindow::on_rb_etatM_clicked()
+{
+    ui->tableView_afficherMachine->setModel(E.trier_etatM());
+}
+
+void MainWindow::on_rb_emplacementM_clicked()
+{
+    ui->tableView_afficherMachine->setModel(E.trier_emplacementM());
+}
+
+void MainWindow::on_rb_typeM_clicked()
+{
+    ui->tableView_afficherMachine->setModel(E.trier_typeM());
+}
+
+
+void MainWindow::on_pb_rechercheM_clicked()
+{
+    if(ui->le_rechercheM->text() == "")
+        {
+            ui->tableView_afficherMachine->setModel(E.afficher_machine());
+        }
+    else
+        {
+             ui->tableView_afficherMachine->setModel(E.rechercher_machine(ui->le_rechercheM->text()));
+        }
+}
+
