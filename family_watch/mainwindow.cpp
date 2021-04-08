@@ -21,10 +21,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     //controle saisie
     ui->setupUi(this);
-    ui->le_matricule_parents->setValidator( new QIntValidator(0, 999999, this));
-    ui->le_matricule_parent2->setValidator( new QIntValidator(0, 999999, this));
-    ui->le_matricule_machine->setValidator( new QIntValidator(0, 999999, this));
-    ui->le_matricule_machine2->setValidator( new QIntValidator(0, 999999, this));
+    ui->le_matricule_parents->setValidator( new QIntValidator(0, 9999, this));
+    ui->le_matricule_parent2->setValidator( new QIntValidator(0, 9999, this));
+    ui->le_matricule_machine->setValidator( new QIntValidator(0, 9999, this));
+    ui->le_matricule_machine2->setValidator( new QIntValidator(0, 9999, this));
     ui->le_numero_parents->setValidator( new QIntValidator(0, 99999999, this));
     ui->le_numero_parent2->setValidator( new QIntValidator(0, 99999999, this));
     ui->le_etat_machine->setValidator( new QIntValidator(0, 2, this));
@@ -189,6 +189,17 @@ void MainWindow::on_pd_exportPDFP_clicked()
      if (dialog.exec() == QDialog::Rejected) return;
      ui->tableView_afficherParents->render(&printer);
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 //MACHINE

@@ -274,7 +274,7 @@ public:
         tabWidget_gestionOumayma = new QTabWidget(centralwidget);
         tabWidget_gestionOumayma->setObjectName(QStringLiteral("tabWidget_gestionOumayma"));
         tabWidget_gestionOumayma->setGeometry(QRect(20, 20, 891, 541));
-        tabWidget_gestionOumayma->setStyleSheet(QStringLiteral(""));
+        tabWidget_gestionOumayma->setStyleSheet(QStringLiteral("font: 8pt \"Comic Sans MS\";"));
         tab_parents = new QWidget();
         tab_parents->setObjectName(QStringLiteral("tab_parents"));
         tab_parents->setStyleSheet(QStringLiteral(""));
@@ -492,7 +492,7 @@ public:
 "border-color: rgb(255, 255, 255);"));
         label_5 = new QLabel(groupBox_2);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(70, 40, 47, 13));
+        label_5->setGeometry(QRect(70, 40, 61, 16));
         label_6 = new QLabel(groupBox_2);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(70, 110, 47, 13));
@@ -564,10 +564,10 @@ public:
         rb_typeM->setGeometry(QRect(580, 330, 82, 17));
         label_13 = new QLabel(tab_4);
         label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setGeometry(QRect(590, 40, 47, 13));
+        label_13->setGeometry(QRect(590, 40, 61, 16));
         label_14 = new QLabel(tab_4);
         label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setGeometry(QRect(590, 90, 47, 13));
+        label_14->setGeometry(QRect(590, 90, 47, 21));
         label_15 = new QLabel(tab_4);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setGeometry(QRect(590, 140, 47, 13));
@@ -607,9 +607,9 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_gestionOumayma->setCurrentIndex(0);
-        tabWidget_parents->setCurrentIndex(0);
-        tabWidget_afficherMachine->setCurrentIndex(2);
+        tabWidget_gestionOumayma->setCurrentIndex(1);
+        tabWidget_parents->setCurrentIndex(1);
+        tabWidget_afficherMachine->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
