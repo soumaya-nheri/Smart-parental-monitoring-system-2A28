@@ -12,7 +12,8 @@
 #include <QLabel>
 #include <QPrintDialog>
 #include <QPrinter>
-
+#include <QSound>
+#include <QMediaPlayer>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -32,6 +33,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 ui->tableView_afficherParents->setModel(P.afficher_parents());
 ui->tableView_afficherMachine->setModel(E.afficher_machine());
+
+
 }
 
 MainWindow::~MainWindow()
@@ -43,6 +46,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pb_actualiser_parents_clicked()
 {
+    QSound::play(":\Click.wav");
     parents P;
     ui->tableView_afficherParents->setModel(P.afficher_parents());
     //P.afficher_parents()ui->tableView_afficherParents);
@@ -50,7 +54,7 @@ void MainWindow::on_pb_actualiser_parents_clicked()
 
 void MainWindow::on_pb_ajouter_parents_clicked()
 {
-
+    QSound::play(":\Click.wav");
     parents P;
     P.setmatricule_parents(ui->le_matricule_parents->text().toInt());
     P.setnom_parents(ui->le_nom_parents->text());
@@ -69,6 +73,7 @@ void MainWindow::on_pb_ajouter_parents_clicked()
 
 void MainWindow::on_pb_supprimer_parent_clicked()
 {
+    QSound::play(":\Click.wav");
     parents P; P.setmatricule_parents(ui->le_parent_supp->text().toInt());
     bool test=P.supprimer_parent(P.getmatricule_parents());
     if(test)
@@ -86,6 +91,7 @@ void MainWindow::on_pb_supprimer_parent_clicked()
 
 void MainWindow::on_pb_modifier_parent_clicked()
 {
+    QSound::play(":\Click.wav");
 
     int row=ui->tableView_afficherParents->selectionModel()->currentIndex().row();
     QString matricule_parents_string=ui->tableView_afficherParents->model()->index(row,0).data().toString();
@@ -118,6 +124,7 @@ void MainWindow::on_pb_modifier_parent_clicked()
 
 void MainWindow::on_pb_validerModifP_clicked()
 {
+    QSound::play(":\Click.wav");
    // QString matricule_parents_string=ui->le_matricule_parent2->text();
     int matricule_parents=ui->le_matricule_parent2->text().toInt();
     QString nom_parents=ui->le_nom_parent2->text();
@@ -141,6 +148,7 @@ void MainWindow::on_pb_validerModifP_clicked()
 
 void MainWindow::on_pb_rechercheP_clicked()
 {
+    QSound::play(":\Click.wav");
     if(ui->le_rechercheP->text() == "")
         {
             ui->tableView_afficherParents->setModel(P.afficher_parents());
@@ -155,22 +163,26 @@ void MainWindow::on_pb_rechercheP_clicked()
 
 void MainWindow::on_rb_triNomP_clicked()
 {
+    QSound::play(":\Click.wav");
     ui->tableView_afficherParents->setModel(P.trier_nomP());
 }
 
 void MainWindow::on_rb_triPrenomP_clicked()
 {
+    QSound::play(":\Click.wav");
     ui->tableView_afficherParents->setModel(P.trier_prenomP());
 }
 
 void MainWindow::on_rb_triNumeroP_clicked()
 {
+    QSound::play(":\Click.wav");
     ui->tableView_afficherParents->setModel(P.trier_numeroP());
 }
 
 
 void MainWindow::on_pd_exportPDFP_clicked()
 {
+    QSound::play(":\Click.wav");
     QPrinter printer;
      printer.setPrinterName("test");
      QPrintDialog dialog(&printer, this);
@@ -183,6 +195,7 @@ void MainWindow::on_pd_exportPDFP_clicked()
 
 void MainWindow::on_pb_actualiser_machine_clicked()
 {
+    QSound::play(":\Click.wav");
     electromenager E;
     ui->tableView_afficherMachine->setModel(E.afficher_machine());
     //E.afficher_machine()ui->tableView_afficherMachine);
@@ -191,6 +204,7 @@ void MainWindow::on_pb_actualiser_machine_clicked()
 
 void MainWindow::on_pb_ajouter_machine_clicked()
 {
+    QSound::play(":\Click.wav");
     electromenager E;
     E.setmatricule_machine(ui->le_matricule_machine->text().toInt());
     E.settype_machine(ui->le_type_machine->text());
@@ -207,6 +221,7 @@ void MainWindow::on_pb_ajouter_machine_clicked()
 
 void MainWindow::on_pb_supprimer_machine_clicked()
 {
+    QSound::play(":\Click.wav");
 
         electromenager E; E.setmatricule_machine(ui->le_machine_supp->text().toInt());
         bool test=E.supprimer_machine(E.getmatricule_machine());
@@ -224,6 +239,7 @@ void MainWindow::on_pb_supprimer_machine_clicked()
 
 void MainWindow::on_pb_modifier_machine_clicked()
 {
+    QSound::play(":\Click.wav");
     int row=ui->tableView_afficherMachine->selectionModel()->currentIndex().row();
     QString matricule_machine_string=ui->tableView_afficherMachine->model()->index(row,0).data().toString();
     QString type_machine=ui->tableView_afficherMachine->model()->index(row,1).data().toString();
@@ -250,6 +266,7 @@ void MainWindow::on_pb_modifier_machine_clicked()
 
 void MainWindow::on_pb_valider_modifE_clicked()
 {
+    QSound::play(":\Click.wav");
     int matricule_machine=ui->le_matricule_machine2->text().toInt();
     QString type_machine=ui->le_type_machine2->text();
     int etat_machine=ui->le_etat_machine2->text().toInt();
@@ -274,7 +291,8 @@ void MainWindow::on_pb_valider_modifE_clicked()
 void MainWindow::on_pb_imprimerM_clicked()
 {
 
-        QPrinter printer;
+         QSound::play(":\Click.wav");
+         QPrinter printer;
          printer.setPrinterName("test");
          QPrintDialog dialog(&printer, this);
          if (dialog.exec() == QDialog::Rejected) return;
@@ -284,22 +302,26 @@ void MainWindow::on_pb_imprimerM_clicked()
 
 void MainWindow::on_rb_etatM_clicked()
 {
+    QSound::play(":\Click.wav");
     ui->tableView_afficherMachine->setModel(E.trier_etatM());
 }
 
 void MainWindow::on_rb_emplacementM_clicked()
 {
+    QSound::play(":\Click.wav");
     ui->tableView_afficherMachine->setModel(E.trier_emplacementM());
 }
 
 void MainWindow::on_rb_typeM_clicked()
 {
+    QSound::play(":\Click.wav");
     ui->tableView_afficherMachine->setModel(E.trier_typeM());
 }
 
 
 void MainWindow::on_pb_rechercheM_clicked()
 {
+    QSound::play(":\Click.wav");
     if(ui->le_rechercheM->text() == "")
         {
             ui->tableView_afficherMachine->setModel(E.afficher_machine());
