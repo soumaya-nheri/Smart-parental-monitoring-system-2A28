@@ -65,6 +65,27 @@ void MainWindow::on_pushButton_2_clicked()
       ui->stackedWidget->setCurrentIndex(1);
 }
 
+void MainWindow::on_Ajouter_Television_clicked()
+{
+    QString matricule_tele = ui->lineEdit_matricule_tele->text();
+           QString modele = ui->lineEdit_modele_tele->text();
+           QString emplacement = ui->comboBox_emplacement_tele->currentText();
+           QString etat = ui->comboBox_Etat->currentText();
+           QTime verouillage = ui->timeEdit->time();
+           Television T(matricule_tele, modele, emplacement, etat, verouillage);
+           bool test = T.Ajouter_television();
+
+           QMessageBox msgBox;
+
+           if(test){
+               msgBox.setText("Ajout réussi");
+               ui-> tableView -> setModel(T.Afficher_television() );
+
+           }
+           else
+               msgBox.setText("Echec ");
+           msgBox.exec();
+}
 
 
 
@@ -75,13 +96,13 @@ void MainWindow::on_pushButton_3_clicked()
             QString modele= ui->lineEdit_Model->text();
             QString emplacement=ui->comboBox_emplacement->currentText();
             QString etat=ui->comboBox_etat->currentText();
-            QTime verouillage =ui->timeEdit->time();
+            QTime verouillage =ui->timeEdit_2->time();
          Television T(matricule_tele,modele,emplacement,etat,verouillage);
             bool test=T.modifier(matricule_tele,modele,emplacement,etat,verouillage);
             QMessageBox msgBox;
                 if(test)
                    {
-                 ui->tableView->setModel(T.Afficher_television());
+                 ui-> tableView->setModel(T.Afficher_television());
                 QMessageBox::information(this, tr("Done"),
                                          QString(tr("success"))
                                          );
@@ -286,3 +307,4 @@ void MainWindow::on_pushButton_9_clicked()
      QString rech=ui->lineEdit_8->text();
     ui->tableView_2->setModel(Th.recherche(choix,rech));
 }
+

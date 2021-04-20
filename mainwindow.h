@@ -69,6 +69,8 @@ private slots:
 
     void on_pushButton_9_clicked();
 
+    void on_Ajouter_Television_clicked();
+
 private:
     Ui::MainWindow *ui;
     Television T;

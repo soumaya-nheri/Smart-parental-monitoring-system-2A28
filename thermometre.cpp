@@ -125,12 +125,20 @@ int Thermometre:: getTemperature()
          QSqlQueryModel *model = new QSqlQueryModel();
 
 
-             if(test==1)
+             if(test==0)
              {
                  query.prepare("SELECT * FROM thermometre where temperature   like '"+text+"'  ");
                  query.exec();
                  model->setQuery(query);
              }
+
+             if(test==1)
+             {
+                 query.prepare("SELECT * FROM thermometre where matricule_thermo  like '"+text+"'  ");
+                 query.exec();
+                 model->setQuery(query);
+             }
+
 
      return model;
 
@@ -149,7 +157,7 @@ int Thermometre:: getTemperature()
              }
 
              if (test == 1) {
-               query.prepare(" SELECT * FROM thermometre ORDER BY matricule asc; ");
+               query.prepare(" SELECT * FROM thermometre ORDER BY matricule_thermo asc; ");
                query.exec();
                model->setQuery(query);
              }
@@ -174,7 +182,11 @@ int Thermometre:: getTemperature()
                model->setQuery(query);
              }
 
-
+             if (test == 1) {
+               query.prepare(" SELECT * FROM thermometre ORDER BY matricule_thermo desc; ");
+               query.exec();
+               model->setQuery(query);
+             }
 
              if (test == 2) {
                query.prepare(" SELECT * FROM thermometre ORDER BY temperature desc; ");
