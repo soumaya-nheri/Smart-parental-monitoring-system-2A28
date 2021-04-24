@@ -1,17 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>mainWindow</class>
+ <widget class="QMainWindow" name="mainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>1318</width>
-    <height>655</height>
+    <height>741</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">border-image: url(:/back.png);
+QTabWidget::pane { /* The tab widget frame */
+     border-top: 2px solid #595fdd;
+ }
+  QTabWidget::tab-bar {
+     alignment: center;
+ }
+ 
+QTabBar::tab {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+     border: 2px solid #595fdd;
+     border-bottom-color: #595fdd; /* same as the pane color */
+     border-top-left-radius: 4px;
+     border-top-right-radius: 4px;
+     min-width: 8ex;
+     padding: 2px;
+ }
+ 
+ QTabBar::tab:selected, QTabBar::tab:hover {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #595fdd, stop: 0.4 #595fdd,
+                                 stop: 0.5 #595fdd, stop: 1.0 #595fdd);
+	color:white; 
+}
+ 
+ QTabBar::tab:selected {
+     border-color: #9B9B9B;
+     border-bottom-color: #595fdd; /* same as pane color */
+ }
+ 
+ QTabBar::tab:!selected {
+     margin-top: 2px; /* make non-selected tabs look smaller */
+ }
+ 
+ /* make use of negative margins for overlapping tabs */
+ QTabBar::tab:selected {
+     /* expand/overlap to the left and right by 4px */
+     margin-left: -4px;
+     margin-right: -4px;
+ }
+ 
+ QTabBar::tab:first:selected {
+     margin-left: 0; /* the first selected tab has nothing to overlap with on the left */
+ }
+ 
+ QTabBar::tab:last:selected {
+     margin-right: 0; /* the last selected tab has nothing to overlap with on the right */
+ }
+ 
+ QTabBar::tab:only-one {
+     margin: 0; /* if there is only one tab, we don't want overlapping margins */
+}
+
+ 
+
+QTableView {border: 3px solid #595fdd;text-align: top;padding: 4px;border-radius: 7px;border-bottom-left-radius: 7px;background: #fff;opacity:0.5;width: 15px;}
+QTableView::item:focus{selection-background-color: #8FE585;}
+
+#MyLoginForm {
+background: red;
+}
+
+#mainFrame {
+border: 3px solid red;
+border-radius: 40px;
+background: white;
+}
+QLineEdit {
+padding: 1px;
+border-style: solid;
+border: 2px solid #595fdd;
+border-radius: 8px;
+}
+QTextEdit {
+padding: 1px;
+border-style: solid;
+border: 2px solid #595fdd;
+border-radius: 8px;
+}
+QDateEdit {
+padding: 1px;
+border-style: solid;
+border: 2px solid #595fdd;
+border-radius: 8px;
+}
+QTimeEdit {
+padding: 1px;
+border-style: solid;
+border: 2px solid #595fdd;
+border-radius: 8px;
+}
+
+QPushButton {
+color: black;
+  background: white;
+
+border-width: 2px;
+border-color: #595fdd;
+border-style: solid;
+border-radius: 10;
+padding: 3px;
+font-size: 12px;
+padding-left: 5px;
+padding-right: 5px;
+min-width: 80px;
+max-width:1800px;
+min-height: 20px;
+max-height: 20px;
+}
+QLabel {
+font-weight: blue;
+font-size: 13px;
+}
+QPushButton:hover { background-color: #595fdd; }
+QComboBox{
+border-style: solid;
+border: 2px solid #595fdd;
+
+
+ }
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="main_tab">
@@ -24,13 +149,122 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 85, 255);</string>
+     <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/back.png);
+}
+QFrame{
+background:rgb(191, 77, 240);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+QComboBox::hover{
+background: rgba(191, 77, 240,0.7);
+}
+QPushButton{
+background:  rgba(191, 77, 240,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background: rgba(191, 77, 240,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(87, 232, 235);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(191, 77, 240,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(191, 77, 240,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
     </property>
     <property name="tabPosition">
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="site_3">
      <attribute name="title">
@@ -51,8 +285,120 @@
         <height>441</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/back.png);
+}
+QFrame{
+background:rgb(191, 77, 240);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+QComboBox::hover{
+background: rgba(191, 77, 240,0.7);
+}
+QPushButton{
+background:  rgba(191, 77, 240,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background: rgba(191, 77, 240,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(87, 232, 235);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(191, 77, 240,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(191, 77, 240,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
+      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="ajouter_9">
        <attribute name="title">
@@ -61,10 +407,10 @@
        <widget class="QGroupBox" name="cadreajout_13">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>20</y>
-          <width>531</width>
-          <height>311</height>
+          <x>10</x>
+          <y>10</y>
+          <width>991</width>
+          <height>571</height>
          </rect>
         </property>
         <property name="title">
@@ -130,7 +476,7 @@
         <widget class="QLineEdit" name="le_id_site">
          <property name="geometry">
           <rect>
-           <x>160</x>
+           <x>200</x>
            <y>40</y>
            <width>113</width>
            <height>22</height>
@@ -146,7 +492,7 @@
         <widget class="QLineEdit" name="le_type_site">
          <property name="geometry">
           <rect>
-           <x>160</x>
+           <x>200</x>
            <y>70</y>
            <width>113</width>
            <height>22</height>
@@ -162,7 +508,7 @@
         <widget class="QLineEdit" name="le_nom_site">
          <property name="geometry">
           <rect>
-           <x>160</x>
+           <x>200</x>
            <y>100</y>
            <width>113</width>
            <height>22</height>
@@ -180,19 +526,127 @@
           <rect>
            <x>390</x>
            <y>120</y>
-           <width>93</width>
-           <height>28</height>
+           <width>94</width>
+           <height>30</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>93</width>
-           <height>28</height>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 85, 255);
-border-color: rgb(170, 0, 255);</string>
+          <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/1.jpg);
+}
+QFrame{
+background:rgba(194, 61, 227,0.5);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+QComboBox::hover{
+background: rgba(194, 61, 227,0.7);
+}
+QPushButton{
+background:  rgba(194, 61, 227,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background:rgba(50,205,50,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #2d3436;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(255, 153, 0);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(50,205,50,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(50,205,50,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
          </property>
          <property name="text">
           <string>Ajouter</string>
@@ -201,7 +655,7 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLineEdit" name="le_adresse_site">
          <property name="geometry">
           <rect>
-           <x>160</x>
+           <x>200</x>
            <y>130</y>
            <width>113</width>
            <height>22</height>
@@ -238,13 +692,13 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>10</x>
            <y>160</y>
-           <width>56</width>
+           <width>81</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>56</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -257,13 +711,13 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>10</x>
            <y>190</y>
-           <width>56</width>
+           <width>101</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>56</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -276,13 +730,13 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>10</x>
            <y>220</y>
-           <width>111</width>
+           <width>171</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>111</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -295,13 +749,13 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>10</x>
            <y>250</y>
-           <width>131</width>
+           <width>161</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>131</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -312,7 +766,7 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLineEdit" name="le_blockage_site">
          <property name="geometry">
           <rect>
-           <x>160</x>
+           <x>200</x>
            <y>190</y>
            <width>113</width>
            <height>22</height>
@@ -328,7 +782,7 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLineEdit" name="le_temps_site">
          <property name="geometry">
           <rect>
-           <x>160</x>
+           <x>200</x>
            <y>250</y>
            <width>113</width>
            <height>22</height>
@@ -344,7 +798,7 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLineEdit" name="le_date_site">
          <property name="geometry">
           <rect>
-           <x>160</x>
+           <x>200</x>
            <y>220</y>
            <width>113</width>
            <height>22</height>
@@ -360,7 +814,7 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLineEdit" name="le_nb_site">
          <property name="geometry">
           <rect>
-           <x>160</x>
+           <x>200</x>
            <y>160</y>
            <width>113</width>
            <height>22</height>
@@ -382,10 +836,10 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="affichercadre_9">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>20</y>
+          <x>10</x>
+          <y>10</y>
           <width>1031</width>
-          <height>571</height>
+          <height>631</height>
          </rect>
         </property>
         <property name="title">
@@ -394,9 +848,9 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QTableView" name="tab_siteafficher">
          <property name="geometry">
           <rect>
-           <x>15</x>
-           <y>21</y>
-           <width>1011</width>
+           <x>90</x>
+           <y>30</y>
+           <width>891</width>
            <height>541</height>
           </rect>
          </property>
@@ -410,8 +864,8 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="groupBox_5">
         <property name="geometry">
          <rect>
-          <x>69</x>
-          <y>49</y>
+          <x>10</x>
+          <y>0</y>
           <width>841</width>
           <height>491</height>
          </rect>
@@ -433,13 +887,13 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>150</x>
-           <y>290</y>
-           <width>141</width>
+           <y>280</y>
+           <width>161</width>
            <height>16</height>
           </rect>
          </property>
          <property name="text">
-          <string>Date de naissance</string>
+          <string>Date derniere visite</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_20">
@@ -459,9 +913,9 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>150</x>
-           <y>120</y>
+           <y>110</y>
            <width>47</width>
-           <height>14</height>
+           <height>21</height>
           </rect>
          </property>
          <property name="text">
@@ -474,7 +928,7 @@ border-color: rgb(170, 0, 255);</string>
            <x>300</x>
            <y>390</y>
            <width>121</width>
-           <height>31</height>
+           <height>30</height>
           </rect>
          </property>
          <property name="text">
@@ -485,7 +939,7 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>150</x>
-           <y>170</y>
+           <y>160</y>
            <width>61</width>
            <height>16</height>
           </rect>
@@ -498,7 +952,7 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>420</x>
-           <y>160</y>
+           <y>150</y>
            <width>113</width>
            <height>20</height>
           </rect>
@@ -521,7 +975,7 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>420</x>
-           <y>120</y>
+           <y>110</y>
            <width>113</width>
            <height>20</height>
           </rect>
@@ -531,14 +985,14 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>150</x>
-           <y>250</y>
-           <width>56</width>
+           <y>240</y>
+           <width>101</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>56</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -550,14 +1004,14 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>150</x>
-           <y>210</y>
-           <width>56</width>
+           <y>200</y>
+           <width>101</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>56</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -569,14 +1023,14 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>150</x>
-           <y>330</y>
-           <width>131</width>
+           <y>320</y>
+           <width>181</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>131</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -588,7 +1042,7 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>420</x>
-           <y>200</y>
+           <y>190</y>
            <width>113</width>
            <height>20</height>
           </rect>
@@ -598,7 +1052,7 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>420</x>
-           <y>240</y>
+           <y>230</y>
            <width>113</width>
            <height>20</height>
           </rect>
@@ -608,7 +1062,7 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>420</x>
-           <y>280</y>
+           <y>270</y>
            <width>113</width>
            <height>20</height>
           </rect>
@@ -618,7 +1072,7 @@ border-color: rgb(170, 0, 255);</string>
          <property name="geometry">
           <rect>
            <x>420</x>
-           <y>320</y>
+           <y>310</y>
            <width>113</width>
            <height>20</height>
           </rect>
@@ -657,12 +1111,12 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>290</x>
            <y>130</y>
-           <width>93</width>
-           <height>28</height>
+           <width>94</width>
+           <height>30</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 85, 255);
+          <string notr="true">
 border-color: rgb(170, 0, 255);</string>
          </property>
          <property name="text">
@@ -716,7 +1170,7 @@ border-color: rgb(170, 0, 255);</string>
          <rect>
           <x>758</x>
           <y>350</y>
-          <width>131</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -756,7 +1210,7 @@ border-color: rgb(170, 0, 255);</string>
           <x>770</x>
           <y>390</y>
           <width>111</width>
-          <height>23</height>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
@@ -794,8 +1248,8 @@ border-color: rgb(170, 0, 255);</string>
          <rect>
           <x>770</x>
           <y>210</y>
-          <width>93</width>
-          <height>28</height>
+          <width>94</width>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
@@ -817,8 +1271,8 @@ border-color: rgb(170, 0, 255);</string>
          <rect>
           <x>900</x>
           <y>210</y>
-          <width>93</width>
-          <height>28</height>
+          <width>94</width>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
@@ -840,8 +1294,8 @@ border-color: rgb(170, 0, 255);</string>
          <rect>
           <x>810</x>
           <y>300</y>
-          <width>93</width>
-          <height>28</height>
+          <width>94</width>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
@@ -905,8 +1359,120 @@ border-color: rgb(170, 0, 255);</string>
         <height>441</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/back.png);
+}
+QFrame{
+background:rgb(191, 77, 240);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+QComboBox::hover{
+background: rgba(191, 77, 240,0.7);
+}
+QPushButton{
+background:  rgba(191, 77, 240,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background: rgba(191, 77, 240,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(87, 232, 235);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(191, 77, 240,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(191, 77, 240,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
+      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="ajouter_10">
        <attribute name="title">
@@ -915,11 +1481,123 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="cadreajout_14">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>20</y>
-          <width>741</width>
-          <height>321</height>
+          <x>10</x>
+          <y>10</y>
+          <width>991</width>
+          <height>591</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/1.jpg);
+}
+QFrame{
+background:rgba(50,205,50,0.5);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #2d3436;
+}
+QComboBox::hover{
+background: rgba(50,205,50,0.7);
+}
+QPushButton{
+background:  rgba(50,205,50,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background:rgba(50,205,50,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #2d3436;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(255, 153, 0);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(191, 77, 240,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(50,205,50,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
         </property>
         <property name="title">
          <string>Ajout</string>
@@ -952,13 +1630,121 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>270</x>
            <y>170</y>
-           <width>93</width>
-           <height>28</height>
+           <width>94</width>
+           <height>30</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 85, 255);
-border-color: rgb(170, 0, 255);</string>
+          <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/back.png);
+}
+QFrame{
+background:rgb(191, 77, 240);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+QComboBox::hover{
+background: rgba(191, 77, 240,0.7);
+}
+QPushButton{
+background:  rgba(191, 77, 240,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background: rgba(191, 77, 240,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(255, 153, 0);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(191, 77, 240,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(191, 77, 240,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
          </property>
          <property name="text">
           <string>Ajouter</string>
@@ -969,7 +1755,7 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>10</x>
            <y>80</y>
-           <width>56</width>
+           <width>81</width>
            <height>16</height>
           </rect>
          </property>
@@ -996,10 +1782,10 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="affichercadre_10">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>20</y>
-          <width>941</width>
-          <height>591</height>
+          <x>10</x>
+          <y>10</y>
+          <width>1001</width>
+          <height>611</height>
          </rect>
         </property>
         <property name="title">
@@ -1010,8 +1796,8 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>10</x>
            <y>20</y>
-           <width>1011</width>
-           <height>541</height>
+           <width>881</width>
+           <height>511</height>
           </rect>
          </property>
         </widget>
@@ -1024,10 +1810,10 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="groupBox_6">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>30</y>
-          <width>751</width>
-          <height>391</height>
+          <x>10</x>
+          <y>10</y>
+          <width>1011</width>
+          <height>601</height>
          </rect>
         </property>
         <property name="title">
@@ -1085,7 +1871,7 @@ border-color: rgb(170, 0, 255);</string>
            <x>300</x>
            <y>280</y>
            <width>121</width>
-           <height>31</height>
+           <height>30</height>
           </rect>
          </property>
          <property name="text">
@@ -1101,10 +1887,10 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="supprimercadre_10">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>20</y>
-          <width>791</width>
-          <height>361</height>
+          <x>10</x>
+          <y>10</y>
+          <width>1001</width>
+          <height>581</height>
          </rect>
         </property>
         <property name="title">
@@ -1115,12 +1901,12 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>290</x>
            <y>130</y>
-           <width>93</width>
-           <height>28</height>
+           <width>94</width>
+           <height>30</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 85, 255);
+          <string notr="true">
 border-color: rgb(170, 0, 255);</string>
          </property>
          <property name="text">
@@ -1161,9 +1947,9 @@ border-color: rgb(170, 0, 255);</string>
      <widget class="QTabWidget" name="afficher_cameras_tab">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>0</y>
-        <width>1061</width>
+        <width>1071</width>
         <height>661</height>
        </rect>
       </property>
@@ -1173,8 +1959,120 @@ border-color: rgb(170, 0, 255);</string>
         <height>441</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/back.png);
+}
+QFrame{
+background:rgb(191, 77, 240);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+QComboBox::hover{
+background: rgba(191, 77, 240,0.7);
+}
+QPushButton{
+background:  rgba(191, 77, 240,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background: rgba(191, 77, 240,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(87, 232, 235);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(191, 77, 240,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(191, 77, 240,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
+      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="ajouter_11">
        <attribute name="title">
@@ -1183,10 +2081,10 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="cadreajout_15">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>20</y>
-          <width>531</width>
-          <height>311</height>
+          <x>10</x>
+          <y>10</y>
+          <width>901</width>
+          <height>581</height>
          </rect>
         </property>
         <property name="title">
@@ -1195,8 +2093,8 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLabel" name="ID_24">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>40</y>
+           <x>20</x>
+           <y>50</y>
            <width>56</width>
            <height>16</height>
           </rect>
@@ -1214,15 +2112,15 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLabel" name="Type_12">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>70</y>
-           <width>56</width>
+           <x>20</x>
+           <y>80</y>
+           <width>81</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>56</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -1233,8 +2131,8 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLabel" name="Nom_12">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>100</y>
+           <x>20</x>
+           <y>110</y>
            <width>56</width>
            <height>16</height>
           </rect>
@@ -1302,18 +2200,18 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>390</x>
            <y>120</y>
-           <width>93</width>
-           <height>28</height>
+           <width>94</width>
+           <height>30</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>93</width>
-           <height>28</height>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 85, 255);
+          <string notr="true">
 border-color: rgb(170, 0, 255);</string>
          </property>
          <property name="text">
@@ -1339,15 +2237,15 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLabel" name="adresse_12">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>130</y>
-           <width>91</width>
+           <x>20</x>
+           <y>140</y>
+           <width>121</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>100</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -1365,10 +2263,122 @@ border-color: rgb(170, 0, 255);</string>
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>20</y>
+          <y>0</y>
           <width>1031</width>
           <height>571</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/back.png);
+}
+QFrame{
+background:rgb(191, 77, 240);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+QComboBox::hover{
+background: rgba(191, 77, 240,0.7);
+}
+QPushButton{
+background:  rgba(191, 77, 240,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background: rgba(191, 77, 240,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(255, 153, 0);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(191, 77, 240,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(191, 77, 240,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
         </property>
         <property name="title">
          <string>Affichage</string>
@@ -1392,10 +2402,10 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="cadreajout_16">
         <property name="geometry">
          <rect>
-          <x>70</x>
-          <y>60</y>
-          <width>531</width>
-          <height>311</height>
+          <x>10</x>
+          <y>10</y>
+          <width>881</width>
+          <height>531</height>
          </rect>
         </property>
         <property name="title">
@@ -1511,18 +2521,18 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>210</x>
            <y>220</y>
-           <width>93</width>
-           <height>28</height>
+           <width>94</width>
+           <height>30</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>93</width>
-           <height>28</height>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 85, 255);
+          <string notr="true">
 border-color: rgb(170, 0, 255);</string>
          </property>
          <property name="text">
@@ -1573,10 +2583,10 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="supprimercadre_11">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>20</y>
-          <width>791</width>
-          <height>361</height>
+          <x>10</x>
+          <y>10</y>
+          <width>1001</width>
+          <height>601</height>
          </rect>
         </property>
         <property name="title">
@@ -1587,12 +2597,12 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>290</x>
            <y>130</y>
-           <width>93</width>
-           <height>28</height>
+           <width>94</width>
+           <height>30</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 85, 255);
+          <string notr="true">
 border-color: rgb(170, 0, 255);</string>
          </property>
          <property name="text">
@@ -1656,8 +2666,8 @@ border-color: rgb(170, 0, 255);</string>
          <rect>
           <x>870</x>
           <y>150</y>
-          <width>93</width>
-          <height>28</height>
+          <width>94</width>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
@@ -1670,7 +2680,7 @@ border-color: rgb(170, 0, 255);</string>
           <x>740</x>
           <y>330</y>
           <width>111</width>
-          <height>23</height>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
@@ -1741,8 +2751,8 @@ border-color: rgb(170, 0, 255);</string>
          <rect>
           <x>780</x>
           <y>240</y>
-          <width>93</width>
-          <height>28</height>
+          <width>94</width>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
@@ -1754,8 +2764,8 @@ border-color: rgb(170, 0, 255);</string>
          <rect>
           <x>740</x>
           <y>150</y>
-          <width>93</width>
-          <height>28</height>
+          <width>94</width>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
@@ -1820,8 +2830,120 @@ border-color: rgb(170, 0, 255);</string>
         <height>441</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/back.png);
+}
+QFrame{
+background:rgb(191, 77, 240);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+QComboBox::hover{
+background: rgba(191, 77, 240,0.7);
+}
+QPushButton{
+background:  rgba(191, 77, 240,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background: rgba(191, 77, 240,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(87, 232, 235);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(191, 77, 240,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(191, 77, 240,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
+      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="ajouter_12">
        <attribute name="title">
@@ -1830,11 +2952,123 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="cadreajout_17">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>20</y>
-          <width>531</width>
-          <height>311</height>
+          <x>10</x>
+          <y>10</y>
+          <width>971</width>
+          <height>581</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/1.jpg);
+}
+QFrame{
+background:rgba(50,205,50,0.5);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #2d3436;
+}
+QComboBox::hover{
+background: rgba(50,205,50,0.7);
+}
+QPushButton{
+background:  rgba(50,205,50,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background:rgba(50,205,50,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #2d3436;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(255, 153, 0);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(191, 77, 240,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(50,205,50,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
         </property>
         <property name="title">
          <string>Ajout</string>
@@ -1842,15 +3076,15 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLabel" name="ID_26">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>40</y>
-           <width>56</width>
+           <x>30</x>
+           <y>50</y>
+           <width>81</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>56</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -1861,15 +3095,15 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLabel" name="Type_14">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>70</y>
-           <width>70</width>
+           <x>30</x>
+           <y>80</y>
+           <width>101</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>70</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -1914,19 +3148,127 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>210</x>
            <y>160</y>
-           <width>93</width>
-           <height>28</height>
+           <width>94</width>
+           <height>30</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>93</width>
-           <height>28</height>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 85, 255);
-border-color: rgb(170, 0, 255);</string>
+          <string notr="true">*{
+font-family:century gothic;
+font-size:15px;
+/*background-color:#ffffee;*/
+/*background:transparent;*/
+font-style:black;
+background-color:rgba(255,255,255,0.6);
+}
+#MainWindow{
+	border-image: url(:/bg/back.png);
+}
+QFrame{
+background:rgb(191, 77, 240);
+border-radius:15px;
+}
+QComboBox{
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+QComboBox::hover{
+background: rgba(191, 77, 240,0.7);
+}
+QPushButton{
+background:  rgba(191, 77, 240,0.7);
+border-radius:20px;
+border-radius:15px;
+}
+
+QPushButton:hover{
+background: rgba(191, 77, 240,0.9);
+color:white;
+}
+
+QToolButton{
+background:  white;
+border-radius:50px;
+}
+QLabel{
+color: #000000;
+background:transparent;
+border: none;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #bf4df0;
+}
+
+/*#ajout,#stat,#tab,#tab_30,#tab_31,#tab_32,#tab_33,#tab_39,#tab_40,#tab_41,#tab_42,#tab_43,#tab_36,#tab_37,#tab_38,#tab_34,#tab_35{
+background-color: #FFF5BD;
+}
+#afficher,#modifier,#tab_19{
+background-color: #FFF5BD;
+}
+#tab_3,#tab_4,#tab_5,#tab_6,#tab_7,#tab_8,#tab_9,#tab_10,#tab_11,#tab_12,#tab_13,#tab_14,#tab_15{
+background-color: #FFF5BD;
+}
+#tab_16,#tab_17,#tab_18,#tab_20,#tab_21,#tab_22,#tab_23{
+background-color: #FFF5BD;
+}
+#statis,#ajout_2,#tab_24,#tab_25,#tab_26,#tab_27,#tab_28,#tab_29{
+background-color: #FFF5BD;
+}
+#supprimer1,#supprimer1_2,#afficher_2,#modifier_2,#Commandes{
+background-color: #FFF5BD;
+}*/
+
+QTabWidget::pane {
+    	border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+QTabBar::tab {
+   background-color:rgba(255,255,255,0.6);
+ 	border-style: outset;
+	border-width: 1px;
+	border-right-color: qlineargradient(spread:pad, x1:0.4, y1:0.5, x2:0.6, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+	border-left-color: qlineargradient(spread:pad, x1:0.6, y1:0.5, x2:0.4, y2:0.5, stop:0 rgba(115, 115, 115, 255), stop:1 rgba(62, 62, 62, 255));
+    border-bottom-color: rgb(58, 58, 58);
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style: solid;
+    color: rgb(255, 153, 0);
+	padding: 4px;
+    font-style: #000000;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+   color:rgba(191, 77, 240,0.7);
+   border-color:rgb(42, 42, 42);
+   margin-left: 0px;
+   margin-right: 0px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+   font-style: #000000;
+}
+
+QTabBar::tab:last:selected {
+  
+	border-color:rgba(191, 77, 240,0.7);
+	margin-left: 0px;
+  	margin-right: 0px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+QTabBar::tab:!selected {
+   margin-bottom: 4px;
+   border-bottom-right-radius:4px;
+   border-bottom-left-radius:4px;
+}</string>
          </property>
          <property name="text">
           <string>Ajouter</string>
@@ -1941,8 +3283,8 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="affichercadre_12">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>20</y>
+          <x>10</x>
+          <y>10</y>
           <width>1031</width>
           <height>571</height>
          </rect>
@@ -1955,8 +3297,8 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>15</x>
            <y>21</y>
-           <width>1011</width>
-           <height>541</height>
+           <width>861</width>
+           <height>471</height>
           </rect>
          </property>
         </widget>
@@ -1969,10 +3311,10 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="cadreajout_18">
         <property name="geometry">
          <rect>
-          <x>70</x>
-          <y>50</y>
-          <width>681</width>
-          <height>421</height>
+          <x>10</x>
+          <y>10</y>
+          <width>981</width>
+          <height>601</height>
          </rect>
         </property>
         <property name="title">
@@ -1981,20 +3323,20 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QPushButton" name="pb_modif_cham">
          <property name="geometry">
           <rect>
-           <x>250</x>
-           <y>330</y>
-           <width>93</width>
-           <height>28</height>
+           <x>310</x>
+           <y>210</y>
+           <width>94</width>
+           <height>30</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>93</width>
-           <height>28</height>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 85, 255);
+          <string notr="true">
 border-color: rgb(170, 0, 255);</string>
          </property>
          <property name="text">
@@ -2004,15 +3346,15 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLabel" name="Type_15">
          <property name="geometry">
           <rect>
-           <x>80</x>
-           <y>90</y>
-           <width>70</width>
+           <x>100</x>
+           <y>100</y>
+           <width>91</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>70</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -2023,15 +3365,15 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLabel" name="ID_27">
          <property name="geometry">
           <rect>
-           <x>80</x>
-           <y>60</y>
-           <width>56</width>
+           <x>100</x>
+           <y>70</y>
+           <width>101</width>
            <height>16</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>56</width>
+           <width>200</width>
            <height>16</height>
           </size>
          </property>
@@ -2080,10 +3422,10 @@ border-color: rgb(170, 0, 255);</string>
        <widget class="QGroupBox" name="supprimercadre_12">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>20</y>
-          <width>791</width>
-          <height>361</height>
+          <x>10</x>
+          <y>10</y>
+          <width>991</width>
+          <height>571</height>
          </rect>
         </property>
         <property name="title">
@@ -2094,12 +3436,12 @@ border-color: rgb(170, 0, 255);</string>
           <rect>
            <x>290</x>
            <y>130</y>
-           <width>93</width>
-           <height>28</height>
+           <width>94</width>
+           <height>30</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 85, 255);
+          <string notr="true">
 border-color: rgb(170, 0, 255);</string>
          </property>
          <property name="text">
@@ -2119,8 +3461,8 @@ border-color: rgb(170, 0, 255);</string>
         <widget class="QLabel" name="id_12">
          <property name="geometry">
           <rect>
-           <x>120</x>
-           <y>60</y>
+           <x>100</x>
+           <y>70</y>
            <width>16</width>
            <height>16</height>
           </rect>
@@ -2145,7 +3487,6 @@ border-color: rgb(170, 0, 255);</string>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
