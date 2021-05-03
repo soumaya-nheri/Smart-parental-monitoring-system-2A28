@@ -1,0 +1,12 @@
+INPUT(
+./release/activite.o
+./release/connexion.o
+./release/electromenager.o
+./release/enfants.o
+./release/exportexcelobject.o
+./release/main.o
+./release/mainwindow.o
+./release/parents.o
+./release/moc_exportexcelobject.o
+./release/moc_mainwindow.o
+);

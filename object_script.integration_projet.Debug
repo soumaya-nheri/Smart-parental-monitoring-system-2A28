@@ -1,0 +1,12 @@
+INPUT(
+./debug/activite.o
+./debug/connexion.o
+./debug/electromenager.o
+./debug/enfants.o
+./debug/exportexcelobject.o
+./debug/main.o
+./debug/mainwindow.o
+./debug/parents.o
+./debug/moc_exportexcelobject.o
+./debug/moc_mainwindow.o
+);
