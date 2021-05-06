@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui multimedia multimediawidgets
 QT += sql
 QT += widgets
 QT += printsupport
@@ -16,22 +16,34 @@ CONFIG += c++11
 
 SOURCES += \
     activite.cpp \
+    cameras.cpp \
+    chambre.cpp \
     connexion.cpp \
     electromenager.cpp \
     enfants.cpp \
     exportexcelobject.cpp \
     main.cpp \
     mainwindow.cpp \
-    parents.cpp
+    ordinateur.cpp \
+    parents.cpp \
+    site.cpp \
+    television.cpp \
+    thermometre.cpp
 
 HEADERS += \
     activite.h \
+    cameras.h \
+    chambre.h \
     connexion.h \
     electromenager.h \
     enfants.h \
     exportexcelobject.h \
     mainwindow.h \
-    parents.h
+    ordinateur.h \
+    parents.h \
+    site.h \
+    television.h \
+    thermometre.h
 
 FORMS += \
     mainwindow.ui

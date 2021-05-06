@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QWidget>
 #include <QMessageBox>
+#include <QTableView>
 #include "qwidget.h"
 #include "QtSql/QSqlDatabase"
 #include <QtSql/QSqlQuery>
@@ -21,6 +22,7 @@
 #include "QFileDialog"
 #include "QTextBrowser"
 #include "QPrinter"
+
 
 class electromenager
 {

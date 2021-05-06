@@ -112,10 +112,11 @@ QSqlQueryModel * electromenager::trier_typeM()
 QSqlQueryModel * electromenager::rechercher_machine(const QString &b)
 {
    QSqlQueryModel * model = new QSqlQueryModel();
-   model->setQuery("SELECT * FROM ELECTROMENAGER WHERE (matricule_machine || type_machine || etat_machine || emplacement_machine) LIKE '%"+b+"%'");
+   model->setQuery("SELECT  TYPE_MACHINE, ETAT_MACHINE, EMPLACEMENT_MACHINE FROM ELECTROMENAGER WHERE (type_machine || etat_machine || emplacement_machine) LIKE '%"+b+"%'");
    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Matricule"));
    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Type"));
    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Etat"));
    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Emplacement"));
    return model;
+
 }

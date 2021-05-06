@@ -1,4 +1,4 @@
-#include "Parents.h"
+#include "parents.h"
 #include <QSqlQuery>
 #include <QDebug>
 #include <QtDebug>

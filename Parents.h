@@ -21,6 +21,8 @@
 #include "QFileDialog"
 #include "QTextBrowser"
 #include "QPrinter"
+
+
 class parents
 {
 public:
