@@ -82,6 +82,24 @@ void Ordinateur::mailSent(QString status)
 }*/
 
 
+QSqlQueryModel * Ordinateur::recherche_modele(QString modele){
+    QSqlQueryModel * model = new QSqlQueryModel();
+    model->setQuery("Select * From ORDINATEUR WHERE modele ='" +modele+"' ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("modele"));
 
+
+    return model;
+}
+
+/*QSqlQueryModel * Ordinateur::recherche_id(int id){
+    QSqlQueryModel * model = new QSqlQueryModel();
+    model->setQuery("Select * From ORDINATEUR WHERE id ='" +id+"' ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("modele"));
+
+
+    return model;
+}*/
 
 

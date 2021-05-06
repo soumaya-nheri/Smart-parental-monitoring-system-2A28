@@ -22,7 +22,8 @@ public:
 
     void sendMail(QString,QString,QString);
     void mailSent(QString);
-
+QSqlQueryModel * recherche_modele(QString);
+QSqlQueryModel * recherche_id(int);
 
 private:
 

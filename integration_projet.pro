@@ -27,6 +27,7 @@ SOURCES += \
     ordinateur.cpp \
     parents.cpp \
     site.cpp \
+    smtp.cpp \
     television.cpp \
     thermometre.cpp
 
@@ -42,11 +43,14 @@ HEADERS += \
     ordinateur.h \
     parents.h \
     site.h \
+    smtp.h \
     television.h \
     thermometre.h
 
 FORMS += \
     mainwindow.ui
+
+QMAKE_CXXFLAGS += -std=gnu++14
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

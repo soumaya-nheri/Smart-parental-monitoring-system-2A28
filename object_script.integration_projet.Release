@@ -11,8 +11,10 @@ INPUT(
 ./release/ordinateur.o
 ./release/parents.o
 ./release/site.o
+./release/smtp.o
 ./release/television.o
 ./release/thermometre.o
 ./release/moc_exportexcelobject.o
 ./release/moc_mainwindow.o
+./release/moc_smtp.o
 );

@@ -18,6 +18,13 @@
 #include <QWidget>
 
 
+#include <QCamera>
+#include <QCameraInfo>
+#include <QCameraViewfinder>
+#include <QCameraImageCapture>
+#include <QVBoxLayout>
+#include <QFileDialog>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -244,6 +251,7 @@ private slots:
 
    // void readSerial();
 
+    void on_Imprim_site_clicked();
 
     void on_Retouraumenu_clicked();
 
@@ -256,6 +264,17 @@ private slots:
    void myfunction();
 
    void on_pb_back1_4_clicked();
+
+   void on_ActiveCam_clicked();
+   void on_CaptureCam_clicked();
+   void on_DesactiveCam_clicked();
+
+   void on_cherchertype_5_clicked();
+   void on_sendBtn_2_clicked();
+   void sendMail(QString,QString,QString);
+   void mailSent(QString);
+
+   void on_mailing_2_tabBarClicked(int index);
 
 private:
     Ui::MainWindow *ui;
@@ -279,6 +298,13 @@ private:
          QAction *mEncenderAction;
          QAction *mApagarAction;
          QAction *mCapturarAction;
+
+
+         QCamera *cam;
+         QCameraImageCapture *imgcam;
+         QCameraViewfinder *camview;
+         QVBoxLayout *camlayout;
+
 
     bool str=false,str_delete=false,str_enf=false,str_delenf=false;
 };

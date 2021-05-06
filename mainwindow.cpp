@@ -5,6 +5,7 @@
 #include "enfants.h"
 #include "activite.h"
 #include "site.h"
+#include "smtp.h"
 #include "ordinateur.h"
 #include "cameras.h"
 #include "television.h"
@@ -48,16 +49,16 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-{/*cam = new QCamera(this);//
+{
+    ui->setupUi(this);
+
+    cam = new QCamera(this);//
     camview = new QCameraViewfinder(this);//
     imgcam = new QCameraImageCapture(cam,this);
     cam->setViewfinder(camview);
     camlayout = new QVBoxLayout;
     camlayout->addWidget(camview);
-    ui->CamWidget->setLayout(camlayout);*/
-
-
-    ui->setupUi(this);
+    ui->CamWidget->setLayout(camlayout);
 
     timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(myfunction()));
@@ -1660,6 +1661,56 @@ void MainWindow::on_pb_supprimer_champ_2_clicked()
     }
 }
 
+void MainWindow::on_Imprim_site_clicked()
+{
+    QString strStream;
+        QTextStream out(&strStream);
+        QString strTitle = "Planning";
+
+        const int rowCount = ui->tab_siteafficher_3->model()->rowCount();
+        const int columnCount = ui->tab_siteafficher_3->model()->columnCount();
+        out <<  "<html>\n"
+            "<head>\n"
+            "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+            <<  QString("<title>%1</title>\n").arg(strTitle)
+            <<  "</head>\n"
+            "<body bgcolor=#ffffff link=#5000A0>\n"
+            "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+        // headers
+        out << "<thead><tr bgcolor=#f0f0f0>";
+        for (int column = 0; column < columnCount; column++)
+            if (!ui->tab_siteafficher_3->isColumnHidden(column))
+                out << QString("<th>%1</th>").arg(ui->tab_siteafficher_3->model()->headerData(column, Qt::Horizontal).toString());
+        out << "</tr></thead>\n";
+
+        // data table
+        for (int row = 0; row < rowCount; row++) {
+            out << "<tr>";
+            for (int column = 0; column < columnCount; column++) {
+                if (!ui->tab_siteafficher_3->isColumnHidden(column)) {
+                    QString data = ui->tab_siteafficher_3->model()->data(ui->tab_siteafficher_3->model()->index(row, column)).toString().simplified();
+                    out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                }
+            }
+            out << "</tr>\n";
+        }
+        out <<  "</table>\n"
+            "</body>\n"
+            "</html>\n";
+
+        QTextDocument *document = new QTextDocument();
+        document->setHtml(strStream);
+
+        QPrinter printer;
+
+        QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+        if (dialog->exec() == QDialog::Accepted) {
+            document->print(&printer);
+        }
+
+        delete document;
+}
 
 
 
@@ -2029,14 +2080,14 @@ void MainWindow::on_Recherche_Thermometre_clicked()
 {QSound::play("Click.wav");
     int choix;
      choix=ui->comboBox_R->currentIndex();
-     QString rech=ui->Recherche_Thermometre->text();
+     QString rech=ui->Recherche_Thermo->text();
     ui->tableView_Thermo->setModel(Th.recherche(choix,rech));
 }
 
 void MainWindow::on_Gestion_Thermo_Tele_clicked()
 {QSound::play("Click.wav");
     Television T;
-       ui->tableView->setModel(T.Afficher_television());
+       //ui->tableView->setModel(T.Afficher_television());
        ui->stackedWidget->setCurrentIndex(2);
 }
 
@@ -2091,7 +2142,7 @@ void MainWindow::on_Musique_clicked()
         {
             player = new QMediaPlayer(this);
             player->setVolume(50);
-            player->setMedia(QUrl::fromLocalFile("C:/Users/HOUSSEM/Downloads/basededonne/got.mp3"));/////changer just taper l emplacement de //fichier et replacer tout \ par /
+            player->setMedia(QUrl::fromLocalFile("got.mp3"));/////changer just taper l emplacement de //fichier et replacer tout \ par /
             player->play();
             sound_on=true;
         }
@@ -2125,4 +2176,68 @@ void MainWindow::on_pb_back1_4_clicked()
 {
     QSound::play("Click.wav");
          ui->stackedWidget->setCurrentIndex(3);
+}
+
+
+void MainWindow::on_ActiveCam_clicked()
+{
+    cam->start();
+}
+
+void MainWindow::on_CaptureCam_clicked()
+{
+    auto filename = QFileDialog::getSaveFileName(this,"CaptureRayon","/","Image(*.jpg;*.jpeg)");
+    if (filename.isEmpty()) {return ;}
+    imgcam->setCaptureDestination(QCameraImageCapture::CaptureToFile);
+    QImageEncoderSettings imgencset;
+    imgencset.setCodec("image/jpeg");
+    imgencset.setResolution(1200,800);
+    imgcam->setEncodingSettings(imgencset);
+    cam->setCaptureMode(QCamera::CaptureStillImage);
+    cam->start();
+    cam->searchAndLock();
+    imgcam->capture(filename);
+    cam->unlock();
+    QMessageBox::information(nullptr, QObject::tr("Capturer une image"),
+                             QObject::tr("Image capturé"), QMessageBox::Ok );
+}
+
+void MainWindow::on_DesactiveCam_clicked()
+{
+    cam->stop();
+}
+
+void MainWindow::on_cherchertype_5_clicked()
+{
+    QSound::play("Click.wav");
+        Ordinateur orditmp;
+            QString type = ui->typerecher_5->text();
+            ui->tab_affrecherche_6->setModel(orditmp.recherche_modele(type));
+}
+
+void MainWindow::sendMail( QString mailreciever , QString object,QString contenue)
+{
+    Smtp* smtp = new Smtp("nawrez.shili@esprit.tn", "191JFT3363", "smtp.gmail.com", 465);
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));////////////////////////////////////////////////
+
+    smtp->sendMail("nawrez.shili@esprit.tn",mailreciever ,object, contenue);
+}
+
+void MainWindow::mailSent(QString status)
+{
+    if(status == "Message sent")
+        QMessageBox::warning( 0,QObject::tr( "Qt Simple SMTP client" ),QObject::tr( "Message sent!\n\n" ) );
+}
+
+void MainWindow::on_sendBtn_2_clicked()
+{
+    sendMail(ui->rcpt_2->text(),ui->subject_2->text(),ui->msg_2->toPlainText());
+}
+
+
+
+void MainWindow::on_mailing_2_tabBarClicked(int index)
+{
+    Ordinateur o;
+    ui->tab_siteafficher_4->setModel(o.afficher());
 }

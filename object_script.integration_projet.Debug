@@ -11,8 +11,10 @@ INPUT(
 ./debug/ordinateur.o
 ./debug/parents.o
 ./debug/site.o
+./debug/smtp.o
 ./debug/television.o
 ./debug/thermometre.o
 ./debug/moc_exportexcelobject.o
 ./debug/moc_mainwindow.o
+./debug/moc_smtp.o
 );
